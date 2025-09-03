@@ -1,8 +1,8 @@
-# GestionAvocat – Application Web de Gestion de Cabinet d’Avocats
+# Projet 2 – Application Web de Gestion de Cabinet d’Avocats
 
 ## Description
 
-GestionAvocat est une application web permettant de gérer efficacement un cabinet d’avocats. Elle offre des outils pour suivre les avocats, les clients et les dossiers juridiques, avec des fonctionnalités d’ajout, modification, suppression et consultation de données.
+Ceci est une application web permettant de gérer efficacement un cabinet d’avocats. Elle offre des outils pour suivre les avocats, les clients et les dossiers juridiques, avec des fonctionnalités d’ajout, modification, suppression et consultation de données.
 
 ---
 
@@ -25,13 +25,3 @@ GestionAvocat est une application web permettant de gérer efficacement un cabin
 - **Base de données** : SQLite
 - **Frontend** : HTML, CSS, JavaScript
 - **Versioning** : Git + GitHub
-
----
-
-## Installation
-
-1. Cloner le dépôt :
-
-```bash
-git clone https://github.com/PepiDearo/projet2gestionavocat.git
-```
