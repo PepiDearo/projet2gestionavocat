@@ -1,9 +1,8 @@
-
 # Projet 2 – Application Web de Gestion de Cabinet d’Avocats
 
-## Description
-
 Ceci est une application web complète pour gérer un cabinet d’avocats. Elle permet de gérer les utilisateurs (avocats, clients), les dossiers juridiques, la facturation, les communications et les activités du cabinet à travers une interface intuitive et sécurisée.
+
+## Général
 
 ---
 
