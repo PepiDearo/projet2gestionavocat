@@ -1,27 +1,44 @@
+
 # Projet 2 – Application Web de Gestion de Cabinet d’Avocats
 
 ## Description
 
-Ceci est une application web permettant de gérer efficacement un cabinet d’avocats. Elle offre des outils pour suivre les avocats, les clients et les dossiers juridiques, avec des fonctionnalités d’ajout, modification, suppression et consultation de données.
+Ceci est une application web complète pour gérer un cabinet d’avocats. Elle permet de gérer les utilisateurs (avocats, clients), les dossiers juridiques, la facturation, les communications et les activités du cabinet à travers une interface intuitive et sécurisée.
 
 ---
 
 ## Fonctionnalités par page
 
-| Page                               | Fonctionnalité                                                                                            |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Accueil**                  | Tableau de bord résumant les avocats et dossiers. Accès rapide aux sections principales.                 |
-| **Gestion des avocats**      | Liste des avocats, ajout, modification et suppression de profils.                                          |
-| **Gestion des clients**      | Liste des clients, ajout, modification et suppression d’informations client.                              |
-| **Gestion des dossiers**     | Liste des dossiers, ajout, modification et suppression. Chaque dossier est lié à un avocat et un client. |
-| **Login / Authentification** | Connexion sécurisée pour les utilisateurs autorisés et gestion des sessions.                            |
-| **Upload / Téléversement** | Téléversement et stockage de documents liés aux dossiers dans `uploads/`.                             |
+| Page                               | Fonctionnalité                                                                                  |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Accueil**                  | Page principale avec accès aux documents récents ajoutés et aux utilisateurs récents.        |
+| **Inscription / SignUp**     | Permet de s’inscrire en tant qu’avocat ou client.                                              |
+| **Connexion / Login**        | Permet de se connecter pour accéder aux fonctionnalités.                                       |
+| **Home**                     | Tableau de bord central affichant les documents et utilisateurs récents.                        |
+| **Gestion des dossiers**     | Drag & drop pour téléverser et gérer les fichiers des dossiers.                               |
+| **Agenda / Planning**        | Planifier des rendez-vous ou événements.                                                       |
+| **Facturation**              | Créer de nouvelles factures et consulter l’historique des paiements.                           |
+| **Communications / CRM**     | Composer/envoyer des emails, accéder à la boîte de réception, et rechercher des messages.    |
+| **Reporting et Analytique**  | Statistiques : emails envoyés, documents téléversés, temps de session, activités récentes. |
+| **Gestion des utilisateurs** | Ajouter, modifier ou supprimer des utilisateurs.                                                 |
 
 ---
 
-## Technologies utilisées
+## Base de données
 
-- **Backend** : Node.js + Express
-- **Base de données** : SQLite
-- **Frontend** : HTML, CSS, JavaScript
-- **Versioning** : Git + GitHub
+Tables principales :
+
+- **Utilisateurs**
+- **Documents**
+- **Factures**
+- **Communications**
+
+---
+
+## Déploiement
+
+1. Générer l’application :
+
+```bash
+node serveur.js
+```
