@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une Facture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+</head>
+<body>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">Créer une nouvelle facture</h1>
+
+            <div class="box">
+                <form id="factureForm">
+                    <div class="field">
+                        <label class="label" for="clientId">Identifiant du client</label>
+                        <div class="control">
+                            <input class="input" type="number" id="clientId" name="clientId" placeholder="Entrez l'ID du client" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="montant">Montant</label>
+                        <div class="control">
+                            <input class="input" type="number" step="0.01" id="montant" name="montant" placeholder="Entrez le montant" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="dateEmission">Date d'émission</label>
+                        <div class="control">
+                            <input class="input" type="date" id="dateEmission" name="dateEmission" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="statut">Statut</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="statut" name="statut">
+                                    <option value="En attente">En attente</option>
+                                    <option value="Payée">Payée</option>
+                                    <option value="Annulée">Annulée</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button is-primary is-fullwidth">Créer la facture</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="has-text-centered">
+                <a href="../main/main.html" class="button is-link">Retour à l'accueil</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="facture.js"></script>
+</body>
+</html>

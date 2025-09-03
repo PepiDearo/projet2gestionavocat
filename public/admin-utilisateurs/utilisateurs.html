@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../admin-utilisateurs/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Utilisateurs</title>
+</head>
+<body class="section">
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Utilisateurs</h1>
+      <div style="display: flex; justify-content: flex-end;">
+        <button style="width:250px;height:50px;margin-right:10px;" class="button is-dark" id="btnmodifier">Ajouter Utilisateurs</button>
+        <button style="width:250px;height:50px" class="button is-dark" onclick="window.location.href='/main';">Revenir</button>
+      </div>
+    </div>
+    <div id="user-list" style="margin-top: 10px;">
+
+    </div>
+  </div>
+
+  
+  <div class="modal" id="popup2">
+    <div class="modal-background"></div>
+       <div class="modal-content" id="contenupopup">
+         <!-- formulaire pr ajouter produit-->
+         <form id="formmodifierutilisateur" enctype="multipart/form-data">
+          <!-- Email field -->
+          <div class="field">
+              <label class="label label-titre" for="adresseCourriel">Adresse Courriel</label>
+              <div class="control">
+                  <input class="input input-titre" type="email" id="adresseCourriel" placeholder="Adresse email" required>
+              </div>
+          </div>
+      
+          <!-- Username field -->
+          <div class="field">
+              <label class="label label-titre" for="username">Username</label>
+              <div class="control">
+                  <input class="input input-titre" type="text" id="username" placeholder="Nom d'utilisateur" required>
+              </div>
+          </div>
+      
+          <!-- Password field -->
+          <div class="field">
+              <label class="label label-titre" for="motDePasse">Mot de Passe</label>
+              <div class="control">
+                  <input class="input input-titre" type="password" id="motDePasse" placeholder="Mot de passe" required>
+              </div>
+          </div>
+      
+          <!-- Client, Avocat, and Admin radio buttons (on the same line using columns) -->
+          <div class="field" style="align-items: center;">
+              <label class="label label-titre">Rôles</label>
+              <div class="columns">
+                  <!-- Client radio button -->
+                  <div class="column is-third">
+                      <label class="radio" for="isClient">
+                          <input type="radio" name="role" id="isClient" value="client"> Client
+                      </label>
+                  </div>
+                  
+                  <!-- Avocat radio button -->
+                  <div class="column is-third">
+                      <label class="radio" for="isAvocat">
+                          <input type="radio" name="role" id="isAvocat" value="avocat"> Avocat
+                      </label>
+                  </div>
+      
+                  <!-- Admin radio button -->
+                  <div class="column is-third">
+                      <label class="radio" for="isAdmin">
+                          <input type="radio" name="role" id="isAdmin" value="admin"> Admin
+                      </label>
+                  </div>
+              </div>
+          </div>
+      
+          <!-- Submit button -->
+          <div class="field">
+              <div class="control">
+                  <button type="submit" class="button is-warning">Ajouter un utilisateur</button>
+              </div>
+          </div>
+      </form>
+      
+       </div>
+       <button class="modal-close is-large" aria-label="close" id="btnfermerpopup2">&times;</button>
+     </div>
+     
+
+</body>
+<script src="../admin-utilisateurs/admin.js"></script>
+</html>

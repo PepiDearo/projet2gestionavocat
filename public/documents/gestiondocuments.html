@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div>
+        <nav class="navbar is-white" role="navigation" aria-label="main navigation" id="topnav">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/main">
+                    <h1 class="title">Home</h1>
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a type="btnadmin" class="button is-info is-light" id="btnafficherutilisateur" href="/utilisateurs" style="margin-right: 5px;">Afficher les utilisateurs</a>
+                    <a class="button is-light" id="btndeconnecter">Se deconnecter</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container">
+        <header>
+            <h1>Documents</h1>
+            <p>Gestion de documents</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-container" id="upload-container">
+                    <div class="upload-area" id="drop-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & Drop vos fichiers ici</p>
+                        <span>OR</span>
+                        <label for="fileInput" class="file-input-label">
+                            Parcourir Fichiers
+                            <input type="file" id="fileInput" hidden/>
+                        </label>
+                    </div>
+                    <div class="selected-file" id="selected-file"></div>
+                    <button id="uploadButton" class="upload-button">Upload</button>
+                </div>
+            </section>
+
+            <section class="history-section">
+                <h2>Historique</h2>
+                <div class="file-list" id="fileList">
+                    <div class="empty-history" id="emptyHistory">
+                        <i class="fas fa-history"></i>
+                        <p>Votre historique de fichiers apparaitera ici </p>
+                    </div>
+                    <!-- Files will be listed here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="gestiondocument.js"></script>
+    <script src="../utils/deconnexion.js"></script>
+    <script src="../utils/verifierAdmin.js"></script>
+</body>
+</html>

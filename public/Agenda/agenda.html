@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Interactif</title>
+
+    <!-- Bulma CSS -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .fc-header-toolbar {
+            padding: 1rem;
+            margin-bottom: 0 !important;
+        }
+
+        .fc-toolbar-title {
+            font-size: 1.5rem !important;
+            font-weight: 600;
+        }
+
+        .hero.is-calendar {
+            /* background: linear-gradient(135deg, #4a76a8 0%, #3a5f8a 100%); */
+            background-color: aliceblue;
+            background-image: url('agenda.jpg');
+            background-size: 100%;
+            /* Couvre tout l'écran */
+            background-repeat: no-repeat;
+  
+            background-position: 60% 80%;
+            /* Centre le GIF */
+        }
+
+        .calendar-container {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1);
+            padding: 1.5rem;
+            margin-top: -2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="navbar is-white" role="navigation" aria-label="main navigation" id="topnav">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/main">
+                        <h1 class="title">PROJET 2</h1>
+                    </a>
+                </div>
+
+                <div class="navbar-end">
+
+                    <div class="navbar-item">
+                        <button id="addEventBtn" class="button is-dark">
+                            <i class="fas fa-plus mr-2"></i> Ajouter un événement
+                        </button>
+                    </div>
+
+                    <div class="navbar-item">
+
+                        <a class="button is-light" id="btndeconnecter">Se deconnecter</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        </div>
+    </header>
+
+    <section class="hero is-medium is-calendar">
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title has-text-white">
+                    <i class="far fa-calendar-alt mr-3"></i> Agenda
+                </h1>
+                <p class="subtitle has-text-white">
+                    Gestion des rendez-vous et événements
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="calendar-container">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour ajouter/modifier un événement -->
+    <div id="eventModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Ajouter un événement</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Titre</label>
+                    <div class="control">
+                        <input id="eventTitle" class="input" type="text" placeholder="Nom de l'événement">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Date de début</label>
+                    <div class="control">
+                        <input id="eventStart" class="input" type="date">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Date de fin</label>
+                    <div class="control">
+                        <input id="eventEnd" class="input" type="date">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Couleur</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select id="eventColor">
+                                <option value="">Par défaut</option>
+                                <option value="#4a76a8">Bleu</option>
+                                <option value="#48c774">Vert</option>
+                                <option value="#ffdd57">Jaune</option>
+                                <option value="#ff3860">Rouge</option>
+                                <option value="#b86bff">Violet</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button id="saveEventBtn" class="button is-primary">Enregistrer</button>
+                <button id="deleteEventBtn" class="button is-danger is-hidden">Supprimer</button>
+                <button id="cancelEventBtn" class="button">Annuler</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Charger FullCalendar JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.10/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.10/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/locales/fr.global.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Variables pour la gestion des événements
+            let currentEvent = null;
+            const modal = document.getElementById('eventModal');
+            const eventTitle = document.getElementById('eventTitle');
+            const eventStart = document.getElementById('eventStart');
+            const eventEnd = document.getElementById('eventEnd');
+            const eventColor = document.getElementById('eventColor');
+            const saveEventBtn = document.getElementById('saveEventBtn');
+            const deleteEventBtn = document.getElementById('deleteEventBtn');
+            const addEventBtn = document.getElementById('addEventBtn');
+
+            // Charger les événements depuis localStorage
+            function loadEvents() {
+                const savedEvents = localStorage.getItem('calendarEvents');
+                return savedEvents ? JSON.parse(savedEvents) : [];
+            }
+
+            // Sauvegarder les événements dans localStorage
+            function saveEvents(events) {
+                const eventsToSave = events.map(event => ({
+                    id: event.id,
+                    title: event.title,
+                    start: event.startStr,
+                    end: event.endStr,
+                    backgroundColor: event.backgroundColor,
+                    borderColor: event.borderColor,
+                    allDay: event.allDay
+                }));
+                localStorage.setItem('calendarEvents', JSON.stringify(eventsToSave));
+            }
+
+            // Initialisation du calendrier
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'fr',
+                editable: true,
+                selectable: true,
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                },
+                buttonText: {
+                    today: 'Aujourd\'hui',
+                    month: 'Mois',
+                    week: 'Semaine',
+                    day: 'Jour'
+                },
+                events: loadEvents(),
+                dateClick: function (info) {
+                    currentEvent = null;
+                    document.querySelector('.modal-card-title').textContent = "Ajouter un événement";
+                    eventTitle.value = '';
+                    eventStart.value = info.dateStr;
+                    eventEnd.value = info.dateStr;
+                    eventColor.value = '';
+                    deleteEventBtn.classList.add('is-hidden');
+                    modal.classList.add('is-active');
+                },
+                eventClick: function (info) {
+                    currentEvent = info.event;
+                    document.querySelector('.modal-card-title').textContent = "Modifier l'événement";
+                    eventTitle.value = info.event.title;
+                    eventStart.value = info.event.startStr.split('T')[0];
+                    eventEnd.value = info.event.end ? info.event.endStr.split('T')[0] : info.event.startStr.split('T')[0];
+                    eventColor.value = info.event.backgroundColor || '';
+                    deleteEventBtn.classList.remove('is-hidden');
+                    modal.classList.add('is-active');
+                },
+                eventAdd: function (info) {
+                    saveEvents(calendar.getEvents());
+                },
+                eventChange: function (info) {
+                    saveEvents(calendar.getEvents());
+                },
+                eventRemove: function (info) {
+                    saveEvents(calendar.getEvents());
+                }
+            });
+
+            calendar.render();
+
+            // Gestion des boutons
+            addEventBtn.addEventListener('click', function () {
+                currentEvent = null;
+                document.querySelector('.modal-card-title').textContent = "Ajouter un événement";
+                eventTitle.value = '';
+                const today = new Date().toISOString().split('T')[0];
+                eventStart.value = today;
+                eventEnd.value = today;
+                eventColor.value = '';
+                deleteEventBtn.classList.add('is-hidden');
+                modal.classList.add('is-active');
+            });
+
+            document.querySelectorAll('.modal-background, .modal-card .delete, #cancelEventBtn').forEach(el => {
+                el.addEventListener('click', function () {
+                    modal.classList.remove('is-active');
+                });
+            });
+
+            saveEventBtn.addEventListener('click', function () {
+                if (!eventTitle.value) {
+                    alert('Veuillez entrer un titre pour l\'événement');
+                    return;
+                }
+
+                const eventData = {
+                    title: eventTitle.value,
+                    start: eventStart.value,
+                    end: eventEnd.value,
+                    backgroundColor: eventColor.value,
+                    borderColor: eventColor.value,
+                    textColor: '#ffffff',
+                    allDay: true
+                };
+
+                if (currentEvent) {
+                    // Mise à jour de l'événement existant
+                    currentEvent.setProp('title', eventData.title);
+                    currentEvent.setDates(eventData.start, eventData.end);
+                    currentEvent.setProp('backgroundColor', eventData.backgroundColor);
+                    currentEvent.setProp('borderColor', eventData.borderColor);
+                } else {
+                    // Ajout d'un nouvel événement
+                    calendar.addEvent(eventData);
+                }
+
+                modal.classList.remove('is-active');
+            });
+
+            deleteEventBtn.addEventListener('click', function () {
+                if (currentEvent && confirm('Voulez-vous vraiment supprimer cet événement ?')) {
+                    currentEvent.remove();
+                    modal.classList.remove('is-active');
+                }
+            });
+        });
+    </script>
+    <script src="../utils/verifierAdmin.js"></script>
+    <script src="../utils/deconnexion.js"></script>
+</body>
+
+</html>

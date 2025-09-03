@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style-connexion.css">
+    <title>Connexion</title>
+</head>
+<body>
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <h1 class="title">PROJET 2</h1>
+            </a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a class="button is-link" href="/inscription" id="btninscrire">S'inscrire</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered" style="max-width:40%">
+                <h1 class="title">Connexion</h1>
+                <form id="formConnexion">
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Entrer un email" id='email' required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input" id="password" type="password" placeholder="Entrer un mot de passe" required>
+                        </div>
+                    </div>
+
+                    <div class="field" style="text-align: left; margin-left:40px; padding-top:15px">
+                        <div class="control">
+                            <button class="button is-link" id="btnconnecter">Se connecter</button>
+                        </div>
+                    </div>
+
+                    <p style="text-align: left; margin-left:40px; padding-top:15px; font-size: 0.9em;">
+                        Vous n'avez pas de compte? <a href="/inscription" style="color: #3273dc; font-style: italic">S'inscrire</a>
+                    </p>
+                    <p style="text-align: left; margin-left:40px; padding-top:15px; font-size: 0.9em;">
+                        Mot de passe <a href="/login" style="color: #3273dc; font-style:italic">oublié ?</a>
+                    </p>
+
+                </form>
+                       <!-- boutons de connexion avec Google Drive et Dropbox -->
+                       <div class="field" style="margin-top: 20px;">
+                        <button class="button is-light is-fullwidth" id="googleLogin">
+                            <span class="icon">
+                                <i class="fab fa-google"></i>
+                            </span>
+                            <span>Se connecter avec Google Drive</span>
+                        </button>
+                    </div>
+
+                    <div class="field">
+                        <button class="button is-light is-fullwidth" id="dropboxLogin">
+                            <span class="icon">
+                                <i class="fab fa-dropbox"></i>
+                            </span>
+                            <span>Se connecter avec Dropbox</span>
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src="connexion.js"></script>
+</html>

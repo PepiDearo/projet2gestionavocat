@@ -1,0 +1,42 @@
+﻿
+.hero-body {
+    background-color:aliceblue;
+    background-image: url('https://images-ext-1.discordapp.net/external/8rDLc43qRYYALNijZ5865opgnivLKS1DwJf85xfJaz4/https/www.brightcarbon.com/wp/wp-content/uploads/2023/03/Waves-and-boat.gif?width=1092&height=614');
+    background-size: 100%; 
+    background-repeat: no-repeat; 
+    background-position: 0 -4cm; }
+
+nav {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.31);
+}
+
+    nav .title {
+        color: rgb(47, 46, 46);
+    }
+
+
+.container {
+    margin: auto;
+    padding: 20px;
+    padding-top: 45px;
+    border: 1px solid #214cce;
+    border-radius: 8px;
+    background-color: #122f66;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.control .input, .control .textarea {
+    max-width: 600px;
+}
+
+.label {
+    color: white;
+    text-align: left;
+    margin-left: 40px;
+    font-weight: normal;
+}
+
+.container .title {
+    text-align: left;
+    margin-left: 40px;
+}

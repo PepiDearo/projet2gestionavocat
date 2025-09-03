@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style-inscription.css">
+    <title>Inscription</title>
+</head>
+
+<body>
+    <nav class="navbar is-white" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <h1 class="title">PROJET 2</h1>
+            </a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a class="button is-link" href="/">Se connecter</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+            <div id="section" class="container has-text-centered" style="max-width:40%">
+                <h1 class="title" id="title">Inscription Client </h1>
+                <form id="forminscription">
+
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                            <input class="input" type="text" id="utilisateur" placeholder="Entrer un nom d'utilisateur"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" id="email" placeholder="Entrer un email" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input" type="password" id="password" placeholder="Entrer un mot de passe"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="field" style="text-align: left; margin-left:40px; padding-top:15px">
+                        <div class="control">
+                            <table>
+                                <tr>
+                                    <td style="vertical-align: middle; padding-right: 1em;">
+                                        <button class="button is-link" id="sinscrire">S'inscrire</button>
+                                    </td>
+                                    <td style="vertical-align: middle; padding-right: 1em;">
+                                        <div class="field">
+                                            <div class="control" style="display: flex; flex-direction: column; align-items: center;">
+                                                <label class="switch">
+                                                    <input type="checkbox" id="modeSwitch">
+                                                    <span class="slider"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        <span id="modeLabel" style="margin-bottom: 5px;">Inscription Client</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <p style="text-align: left; margin-left:40px; padding-top:15px; font-size: 0.9em;">
+                        En créant un compte vous acceptez les <a href="/terms"
+                            style="color: #3273dc; font-style:italic">Conditions générales d'utilisation</a>.
+                    </p>
+
+                    <p style="text-align: left; margin-left:40px; padding-top:15px; font-size: 0.9em;">
+                        Vous avez déjà un compte? <a href="/" style="color: #3273dc;">Se connecter</a>
+                    </p>
+                </form>
+                <!-- boutons de connexion avec Google Drive et Dropbox -->
+                <div class="field" style="margin-top: 20px;">
+                    <a class="button is-light is-fullwidth" id="googleLogin" href="/auth/google">
+                        <span class="icon">
+                            <i class="fab fa-google"></i>
+                        </span>
+                        <span>S'inscrire avec Google Drive</span>
+                    </a>
+                </div>
+
+                <div class="field">
+                    <button class="button is-light is-fullwidth" id="dropboxLogin">
+                        <span class="icon">
+                            <i class="fab fa-dropbox"></i>
+                        </span>
+                        <span>S'inscrire avec Dropbox</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+<!--script javascript-->
+<script src="inscription.js"></script>
+
+</html>

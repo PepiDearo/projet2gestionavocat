@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="meteo.css">
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8" />
+    <title>PROJET 2</title>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <nav class="navbar is-white" role="navigation" aria-label="main navigation" id="topnav">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/main">
+                        <h1 class="title">PROJET 2</h1>
+                    </a>
+                </div>
+                <div class="navbar-item" id="weather">
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a type="btnadmin" class="button is-info is-light" id="btnafficherutilisateur"
+                            href="/utilisateurs" style="margin-right: 5px;">Gérer les utilisateurs</a>
+                        <a class="button is-light" id="btndeconnecter">Se deconnecter</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        </div>
+    </header>
+
+    <div class="container hero is-fullheight" style="margin-top: 1%;">
+        <section class="section">
+            <div class="columns is-multiline is-centered is-variable is-2">
+                <div class="column is-one-fifth">
+                    <a href="/documents"
+                        class="box equal-box has-text-centered has-background-link-light has-text-weight-semibold is-clickable">
+                        GESTION DOSSIERS
+                    </a>
+                </div>
+                <div class="column is-one-fifth">
+                    <a href="../Agenda/agenda.html"
+                        class="box equal-box has-text-centered has-background-link-light has-text-weight-semibold is-clickable">
+                        AGENDA
+                    </a>
+                </div>
+                <div class="column is-one-fifth">
+                    <div class="dropdown is-hoverable" style="width: 100%;" >
+                        <div class="dropdown-trigger" style="width: 100%;">
+                            <a href="/facturation" style="width: 100%;" 
+                                class="box equal-box has-text-centered has-background-link-light has-text-weight-semibold is-clickable">
+                                FACTURATION
+                            </a>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <a href="../Factures/facture.html" class="dropdown-item">
+                                    Créer une facture
+                                </a>
+                                <a href="../Factures/afficherFacture.html" class="dropdown-item">
+                                    Historique des paiements
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="column is-one-fifth">
+                    <a href="/communications"
+                        class="box equal-box has-text-centered has-background-link-light has-text-weight-semibold is-clickable">
+                        COMMUNICATIONS CRM
+                    </a>
+                </div>
+                <div class="column is-one-fifth">
+                    <a href="/reporting"
+                        class="box equal-box has-text-centered has-background-link-light has-text-weight-semibold is-clickable">
+                        REPORTING ANALYTIQUES
+                    </a>
+                </div>
+            </div>
+
+            <div class="container has-text-centered">
+                <h2 class="title" id="prenom-user"> --- </h2>
+            </div>
+
+            <section id="mid" class="section" style="width: 100%; padding: 0;">
+                <div style="display: flex; width: 100%; justify-content: space-between; padding: 20px;">
+                    <div id="documents-widget"
+                        style="flex: 0.9; margin-right: 20px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+                        <h3 class="title is-5">Documents Récents</h3>
+                        <div id="documents-list">
+                            <!-- ////// -->
+                        </div>
+                    </div>
+
+                    <div id="meteo-widget"
+                        style="width: 260px; padding: 20px; background-color: #ffffff; border-radius: 8px;">
+                        <div style="display: flex; align-items: center;">
+                            <img id="icon" src="empty.png" alt="condition ciel">
+                        </div>
+                        <select id="ville">
+                            <option>Montreal,CA</option>
+                            <option>Trois-Rivières,CA</option>
+                            <option>Québec,CA</option>
+                            <option>Ottawa,CA</option>
+                            <option>Toronto,CA</option>
+                            <option>Vancouver,CA</option>
+                            <option>Edmonton,CA</option>
+                            <option>San Francisco,US</option>
+                            <option>New York City,US</option>
+                            <option>Washington,US</option>
+                        </select>
+                        <div class="info"><label>Temp:</label> <span id="temp">--°C</span></div>
+                        <div class="info"><label>Max:</label> <span id="temp_max">--°C</span></div>
+                        <div class="info"><label>Min:</label> <span id="temp_min">--°C</span></div>
+                        <div class="info"><label>Lever:</label> <span id="sunrise">--</span></div>
+                        <div class="info"><label>Coucher:</label> <span id="sunset">--</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mid2" class="section" style="width: 100%; padding: 0;">
+                <div style="display: flex; flex: 1; justify-content: space-between; padding: 20px;">
+                    <div id="clients-widget"
+                        style="flex: 1; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+
+                       
+                        <div id="mid2header"
+                            style="display: flex; justify-content: flex-start; align-items: center; margin-bottom: 15px;">
+                            <h3 class="title is-5" style="margin: 0;" id="titre-utilisateurs">Utilisateurs récents</h3>
+                            <a type="btnadmin" class="button is-info is-light" id="btnafficherutilisateur" href="/utilisateurs"
+                                style="margin-left: 10px;">
+                                Gérer les utilisateurs
+                            </a>
+                        </div>
+
+            
+                        <div id="client-list">
+                            <!-- ////// -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </section>
+    </div>
+
+
+
+    <!--footer-->
+    <footer class="footer has-background-dark has-text-centered is-flex-align-items-flex-end mt-auto has-text-white">
+        <p>© 2024 - Tous droits réservés.</p>
+    </footer>
+</body>
+<script src="../utils/deconnexion.js"></script>
+<script src="../utils/verifierAdmin.js"></script>
+<script src="weather.js"></script>
+<script src="document-recents.js"></script>
+<script src="../main/users-recents.js"></script>
+<script src="nom.js"></script>
+
+</html>

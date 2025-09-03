@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher les Factures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">Liste des Factures</h1>
+            
+            <div class="box">
+                <div class="table-container">
+                    <table class="table is-fullwidth is-striped">
+                        <thead>
+                            <tr>
+                                <th>ID Facture</th>
+                                <th>ID Client</th>
+                                <th>Montant</th>
+                                <th>Date Émission</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="facturesTableBody">
+                            <!-- Les factures seront ajoutées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="has-text-centered">
+                <a href="../dashboard.html" class="button is-link">
+                    <i class="fas fa-home"></i>&nbsp; Retour à l'accueil
+                </a>
+                <a href="facture.html" class="button is-primary">
+                    <i class="fas fa-plus"></i>&nbsp; Nouvelle Facture
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="af.js"></script>
+</body>
+</html>

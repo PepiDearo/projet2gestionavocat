@@ -1,0 +1,257 @@
+/* Statistics Page Styles */
+
+/* Main Statistics Card Section */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    background-color: #f0f8ff;
+    color: #3273dc;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-title {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.stat-trend {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.stat-trend.positive {
+    color: #48c774;
+}
+
+.stat-trend.negative {
+    color: #f14668;
+}
+
+.stat-trend i {
+    margin-right: 5px;
+}
+
+/* Detailed Statistics Section */
+.detailed-stats {
+    margin-bottom: 30px;
+}
+
+.chart-container,
+.top-clients {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+}
+
+.chart-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Activity Chart */
+.activity-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 250px;
+}
+
+.chart-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12%;
+}
+
+.chart-bar {
+    width: 100%;
+    background-color: #3273dc;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.5s ease;
+}
+
+.chart-label {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Top Clients List */
+.client-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.client-item:last-child {
+    border-bottom: none;
+}
+
+.client-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.client-value {
+    font-weight: 600;
+    color: #3273dc;
+}
+
+/* Recent Activity Section */
+.recent-activities {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f8ff;
+    color: #3273dc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.activity-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 3px;
+}
+
+.activity-time {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* Support Section */
+.support-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.support-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.support-description {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.support-form {
+    max-width: 600px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-chart {
+        height: 200px;
+    }
+
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .activity-icon {
+        margin-bottom: 10px;
+    }
+
+    .activity-time {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+}

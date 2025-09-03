@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="meteo.css">
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="statistics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8" />
+    <title>PROJET 2 - Statistiques</title>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <nav class="navbar is-white" role="navigation" aria-label="main navigation" id="topnav">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/main">
+                        <h1 class="title">PROJET 2</h1>
+                    </a>
+                </div>
+                <div class="navbar-item" id="weather">
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a type="btnadmin" class="button is-info is-light" id="btnafficherutilisateur"
+                            href="/utilisateurs" style="margin-right: 5px;">Gérer les utilisateurs</a>
+                        <a class="button is-light" id="btndeconnecter">Se deconnecter</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container hero is-fullheight" style="margin-top: 1%;">
+        <section class="section">
+            <div class="container has-text-centered">
+                <h2 class="title">Statistiques & Analytiques</h2>
+                <h3 class="subtitle" id="prenom-user">Bienvenue, ---</h3>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Emails Envoyés</h3>
+                        <div class="stat-value"></div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Documents Téléversés</h3>
+                        <div class="stat-value"></div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Temps Cette Session</h3>
+                        <div class="stat-value">0h 00m</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="detailed-stats">
+                <div class="columns">
+                    <div class="column is-8">
+                        <div class="chart-container">
+                            <h3 class="chart-title">Activité Hebdomadaire</h3>
+                            <div class="activity-chart">
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 40%;"></div>
+                                    <div class="chart-label">Lun</div>
+                                </div>
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 65%;"></div>
+                                    <div class="chart-label">Mar</div>
+                                </div>
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 85%;"></div>
+                                    <div class="chart-label">Mer</div>
+                                </div>
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 70%;"></div>
+                                    <div class="chart-label">Jeu</div>
+                                </div>
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 90%;"></div>
+                                    <div class="chart-label">Ven</div>
+                                </div>
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 30%;"></div>
+                                    <div class="chart-label">Sam</div>
+                                </div>
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height: 20%;"></div>
+                                    <div class="chart-label">Dim</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-4">
+                        <div class="top-clients">
+                            <h3 class="chart-title">Top Clients par Contact</h3>
+                            <div class="client-list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-activities">
+                <h3 class="chart-title">Activités Récentes</h3>
+                <div class="activity-list">
+                    <!-- //////// -->
+                </div>
+            </div>
+
+            <div class="support-section">
+                <h3 class="support-title">Vous rencontrez un problème?</h3>
+                <p class="support-description">L'équipe de support est disponible pour vous aider. Décrivez votre
+                    problème ci-dessous.</p>
+                <div class="support-form">
+                    <div class="field">
+                        <label class="label">Sujet</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Décrivez brièvement votre problème">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                            <textarea class="textarea"
+                                placeholder="Fournissez plus de détails sur le problème que vous rencontrez"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-info">Signaler un problème</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--footer-->
+    <footer class="footer has-background-dark has-text-centered is-flex-align-items-flex-end mt-auto has-text-white">
+        <p>© 2024 - Tous droits réservés.</p>
+    </footer>
+
+    <script src="../utils/deconnexion.js"></script>
+    <script src="../utils/verifierAdmin.js"></script>
+    <script src="./statistics.js"></script>
+    <script src="../main/nom.js"></script>
+</body>
+
+</html>
